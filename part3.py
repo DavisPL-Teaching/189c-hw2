@@ -1,16 +1,13 @@
 """
 Part 3: Pigeonhole Principle
 
-This part will explore the performance of Z3.
-This part will explore some of the limitations of Z3.
-What are some questions that are too difficult for Z3?
+This part will explore some of the limitations and performance
+of Z3.
 
-While we won't see the z3.unknown ("I don't know") answer
-in this part, we will instead explore a problem for
-which Z3 can take a long time or a lot of memory to solve
-(or both).
 A famous problem that solvers like Z3 sometimes have
 difficulty with is the pigeonhole principle.
+This principle can either take a long time to prove,
+or it can return unknown, as we will see.
 
 === What is the pigeonhole principle? ===
 
@@ -47,3 +44,44 @@ Then, answer the questions at the end of the file.
 """
 
 import z3
+
+def pigeons_in_holes(m, n):
+    # A starting point: let's create a list of n holes
+    holes = [z3.Int(f"hole{i}") for i in range(n)]
+    # TODO
+    raise NotImplementedError
+
+def two_in_hole(n):
+    holes = [z3.Int(f"hole{i}") for i in range(n)]
+    # TODO
+    raise NotImplementedError
+
+def pigeonhole_principle(n):
+    # TODO
+    raise NotImplementedError
+
+for i in range(1,10):
+    n = 2**i
+    print(f"=== Pigeonhole principle for n = {n} ===")
+    spec = pigeonhole_principle(n)
+    z3.prove(spec)
+
+"""
+Finally, here is a version of the pigeonhole principle
+that is general enough to work for any n, instead of
+just a specific n.
+
+For this version, we use the z3.Array type
+to encode an arbitrary number of holes.
+"""
+
+def pigeonhole_principle_general():
+    n = z3.Int('n')
+    a = z3.Array('a', z3.IntSort(), z3.IntSort())
+    # TODO
+
+"""
+Let's see what happens when we try to prove this.
+"""
+
+z3.prove(pigeonhole_principle_general())
