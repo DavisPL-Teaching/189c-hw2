@@ -21,7 +21,7 @@ using codespaces or if you are on a fresh machine.
 There are three parts to the assignment.
 - Part 1 is a series of mini exercises, similar to HW1.
 - Part 2 is a solver for the "four numbers" game that we
-played on the first day of class; see [Lecture 0 Demo](https://github.com/DavisPL-Teaching/189C/blob/main/lecture0/z3-demo.py).
+played on the first day of class.
 - Part 3 explores the performance limitations of Z3.
 
 To continue, open and edit the files `part1.py`, `part2.py`, and `part3.py`.
