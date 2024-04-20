@@ -5,53 +5,7 @@ Part 1: Mini exercises
 import z3
 import pytest
 
-"""
-Helper functions
-
-We will use these instead of
-z3.prove and z3.solve.
-The main difference between z3.prove and
-z3.solve is that they also return the result.
-"""
-
-# Constants -- output of solve()
-SAT = z3.sat
-UNSAT = z3.unsat
-UNKNOWN = z3.unknown
-
-# Constants -- output of prove()
-PROVED = UNSAT
-FAILED = UNKNOWN
-COUNTEREXAMPLE = SAT
-
-def prove(spec):
-    solver = z3.Solver()
-    solver.add(z3.Not(spec))
-    result = solver.check()
-    if result == UNSAT:
-        print("proved")
-    elif result == UNKNOWN:
-        print("failed to prove")
-        print(s.model())
-    else:
-        # result == SAT
-        print("counterexample")
-        print(s.model())
-    return result
-
-def solve(spec):
-    solver = z3.Solver()
-    solver.add(spec)
-    result = solver.check()
-    if result == UNSAT:
-        print("no solution")
-    elif result == UNKNOWN:
-        print("failed to solve")
-    else:
-        # result == SAT
-        print("solution found")
-        print(s.model())
-    return result
+from helper import prove, solve, SAT, UNSAT, PROVED, COUNTEREXAMPLE, UNKNOWN
 
 """
 A. Writing specifications
@@ -87,22 +41,27 @@ def test_abs_1():
     spec = z3.Implies(x > 0, abs(x) == x)
     assert prove(spec) == PROVED
 
+@pytest.mark.skip
 def test_abs_2():
     # TODO
     raise NotImplementedError
 
+@pytest.mark.skip
 def test_abs_3():
     # TODO
     raise NotImplementedError
 
+@pytest.mark.skip
 def test_abs_4():
     # TODO
     raise NotImplementedError
 
+@pytest.mark.skip
 def test_abs_5():
     # TODO
     raise NotImplementedError
 
+@pytest.mark.skip
 def test_abs_6():
     # TODO
     raise NotImplementedError
