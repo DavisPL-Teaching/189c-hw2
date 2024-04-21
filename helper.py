@@ -5,6 +5,9 @@ We will use these instead of
 z3.prove and z3.solve.
 The main difference between z3.prove and
 z3.solve is that they also return the result.
+
+We also provide a function get_solution
+that will be useful for Part 2.
 """
 
 import z3
@@ -53,3 +56,30 @@ def solve(spec):
         print("solution found")
         print(solver.model())
     return result
+
+"""
+get_solution(spec)
+
+If the spec is satisfiable,
+this returns the solution as a Z3 "Model" object.
+
+You can get the value of a variable x by doing
+    model[x]
+
+Here is an example usage:
+    x = z3.Int('x')
+    spec = x > 5
+    model = get_solution(spec)
+    print(model[x])
+
+Returns: either a Z3 model solution or None
+"""
+
+def get_solution(spec):
+    solver = z3.Solver()
+    solver.add(spec)
+    result = solver.check()
+    if result == SAT:
+        return solver.model()
+    else:
+        return None
