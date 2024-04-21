@@ -84,10 +84,12 @@ unsatisfiable if they do not overlap.
 (The time is not given as an argument, because it should be
 included in the expressions for the rectangle's position.)
 
-Hint: You can create two new variables,
+Hint:
+There's more than one way to do this, but one way that is
+more general than just rectangles is to create two new variables,
     overlap_point_x
     overlap_point_y
-that describe the point of overlap between the two rectangles.
+that describe the point of overlap between the two shapes.
 
 8. Write a function rectangles_collide that checks whether
 two rectangles collide at any point in time.

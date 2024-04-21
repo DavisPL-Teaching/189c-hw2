@@ -1,13 +1,19 @@
 """
 Z3 helper functions
 
-We will use these instead of
-z3.prove and z3.solve.
-The main difference between z3.prove and
-z3.solve is that they also return the result.
+This file provides three functions:
 
-We also provide a function get_solution
-that will be useful for Part 2.
+- prove(spec) can be used instead of z3.prove.
+  It tries to prove that the spec is always true.
+  It returns PROVED, COUNTEREXAMPLE, or UNKNOWN.
+
+- solve(spec) can be used instead of z3.solve.
+  It tries to find a solution to the spec.
+  It returns SAT, UNSAT, or UNKNOWN.
+
+- get_solution(spec) can be used to get a solution
+  to the spec, assuming that it is satisfiable (SAT).
+  Otherwise it returns None.
 """
 
 import z3
@@ -60,10 +66,10 @@ def solve(spec):
 """
 get_solution(spec)
 
-If the spec is satisfiable,
-this returns the solution as a Z3 "Model" object.
+This function will be useful for Part 2.
 
-You can get the value of a variable x by doing
+The solution is returned as a Z3 "Model" object.
+You can get the value of a variable x from a model by doing
     model[x]
 
 Here is an example usage:
@@ -74,7 +80,6 @@ Here is an example usage:
 
 Returns: either a Z3 model solution or None
 """
-
 def get_solution(spec):
     solver = z3.Solver()
     solver.add(spec)

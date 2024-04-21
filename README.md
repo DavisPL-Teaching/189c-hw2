@@ -18,10 +18,13 @@ using codespaces or if you are on a fresh machine.
 
 ## Assignment
 
-There are three parts to the assignment.
-- Part 1 is a series of mini exercises, similar to HW1.
+Like HW1, there are three parts to the assignment:
+- Part 1 is a series of mini exercises.
 - Part 2 is a solver for the "four numbers" game that we
 played on the first day of class.
 - Part 3 explores some of the limitations of Z3.
+
+There is also a helper file, `helper.py` that contains some useful
+functions when working with Z3.
 
 To continue, open and edit the files `part1.py`, `part2.py`, and `part3.py`.

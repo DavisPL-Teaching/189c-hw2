@@ -45,7 +45,8 @@ You will be asked to write two functions:
     Input:
         m and n are Python integers.
     Returns:
-        A specification that says that m pigeons are in n holes.
+        A specification that says that that the total
+        number of pigeons in the n holes is exactly m.
 
 - two_in_hole(n):
     Input:
@@ -62,8 +63,10 @@ Then we will consider the performance of Z3 on your implementation.
 """
 
 def pigeons_in_holes(m, n):
-    # A starting point: this creates a list of n holes.
-    # You can use holes[i] to get the i-th hole.
+    # A starting point: this creates a list of holes,
+    # where the i-th element contains the number of pigeons
+    # in hole i.
+    # You can use holes[i] to get the value for hole i.
     holes = [z3.Int(f"hole{i}") for i in range(n)]
     # TODO
     raise NotImplementedError
