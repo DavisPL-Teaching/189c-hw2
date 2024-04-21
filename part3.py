@@ -3,8 +3,8 @@ Part 3: Pigeonhole Principle
 
 This part will explore two limitations of Z3:
 
-1. Sometimes, Z3 gets the right answer, but takes a long time to do so
-    (or even hangs entirely).
+1. Sometimes, Z3 gets the right answer, but takes a long time to do so,
+    or even hangs indefinitely.
 2. Sometimes, Z3 can't prove a statement at all, and returns UNKNOWN.
 
 === What is the pigeonhole principle? ===
