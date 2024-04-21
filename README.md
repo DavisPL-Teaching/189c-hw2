@@ -21,10 +21,10 @@ Please see [this Piazza post](https://piazza.com/class/lt90i40zrot3ue/post/48) f
 Like HW1, there are three parts to the assignment and a fourth part that is extra credit:
 - Part 1 is a series of mini exercises.
 - Part 2 is a solver for the "four numbers" game that we
-played on the first day of class.
+  played on the first day of class.
 - Part 3 explores some of the limitations of Z3.
-- Part 4 (optional) explores one application of Z3 to writing compiler
-    optimization passes.
+- Part 4 (optional) explores an application of Z3 to writing
+  compiler optimizations.
 
 There is also a helper file, `helper.py` that contains some useful
 functions when working with Z3.
@@ -33,7 +33,6 @@ To continue, open and edit the files `part1.py`, `part2.py`, and `part3.py`.
 
 ## Getting help
 
-A few of the exercises are a bit tricky!
 If you get stuck, take a look at the file `hints.md` for some hints.
 Please also don't hesitate to ask questions on Piazza or drop by
-office hours.
+office hours!

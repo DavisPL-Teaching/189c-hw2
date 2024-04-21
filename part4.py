@@ -2,14 +2,29 @@
 Part 4 (optional): Extra Credit
 
 This part explores an example application of Z3.
-Like part 4 in HW1, it is totally optional.
+Like part 4 in HW1, it is optional and more open-ended.
 
-Your goal is to us Z3 to write a small optimizing interpreter
-for a minimal programming language.
+Your goal is to use Z3 to write a small interpreter
+and optimizer for a minimal programming language.
+
+=== Terminology ===
+
+Some terminology used in this problem:
+- A "parser" reads in a program source code and turns
+it into an internal data structure representing the program.
+- An "interpreter" executes this program, usually one line at a time.
+- An "optimizer" takes the program and tries to make it more
+efficient to execute.
+
+We don't have a full compiler here because we won't be
+producing machine code, but the idea is roughly the same.
+To make a compiler, you would just need to add an extra step
+to convert the internal data structure into machine code like
+assembly or LLVM IR.
 
 === Input ===
 
-The input to your interpreter is a list of one-line commands.
+The input to your program is a list of one-line commands.
 Each of the lines is one of the following:
 
     X := val
@@ -42,9 +57,10 @@ Each of the lines is one of the following:
 
 In this language, a variable (X) can be any single-character capital string.
 
-=== Semantics ===
+=== Executing commands ===
 
-The language stores a value for each variable, which is an integer.
+To execute commands, you should interpret them as follows:
+at any point in time, each variable has an integer value.
 If variables are not initialized, they are assumed to be 0.
 Each command is interpreted in order from top to bottom,
 and is run by modifying the values of each variable.
@@ -91,9 +107,10 @@ out to the console).
 
 Finally, write an optimizer that takes a list of commands and
 removes any specific IF or ELSE blocks that are not necessary.
+This can be run prior to the interpreter.
 
-This is called "dead code elimination" and is a common optimization
-technique in compilers.
+This specific optimization is called "dead code elimination"
+and is a common optimization used in compilers.
 Here is an outline of how to do this:
 
 - Write a function that associates each line of the program
@@ -109,10 +126,10 @@ Here is an outline of how to do this:
   that X >= Y is always true (given the expressions for X and Y),
   then the ELSE block can be removed.
 
-  You will need to be careful about handling input.
-  For a line X := input, you will need to add a new variable
-  to your Z3 expression that represents the input and ensure
-  that all these variables are distinct.
+You may need to be careful about handling input.
+For a line X := input, you will need to add a new variable
+to your Z3 expression that represents the input and ensure
+that all these variables are distinct.
 
 === Task 4: Test Input ===
 
