@@ -131,12 +131,6 @@ overlap directly, create new variables for the point of overlap.
 (This is a more general technique that
 can be used for any shape, not just rectangles!)
 
-Create two new variables, e.g.
-    overlap_point_x
-    overlap_point_y
-that describe the point of overlap between the two shapes.
-Then, assert that this new point is inside the bounds of both shapes.
-
 10. Write a function rectangles_collide that checks whether
 two rectangles collide at any point in time.
 """

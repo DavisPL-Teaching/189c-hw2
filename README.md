@@ -28,3 +28,10 @@ There is also a helper file, `helper.py` that contains some useful
 functions when working with Z3.
 
 To continue, open and edit the files `part1.py`, `part2.py`, and `part3.py`.
+
+## Getting help
+
+A few of the exercises are a bit tricky!
+If you get stuck, take a look at the file `hints.md` for some hints.
+Please also don't hesitate to ask questions on Piazza or drop by
+office hours.

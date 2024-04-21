@@ -1,8 +1,10 @@
 """
 Part 3: Pigeonhole Principle
 
-This part will explore some limitations of Z3:
-1. Sometimes, Z3 gets the right answer, but takes a long time to do so.
+This part will explore two limitations of Z3:
+
+1. Sometimes, Z3 gets the right answer, but takes a long time to do so
+    (or even hangs entirely).
 2. Sometimes, Z3 can't prove a statement at all, and returns UNKNOWN.
 
 === What is the pigeonhole principle? ===
@@ -41,14 +43,14 @@ from helper import prove, solve, SAT, UNSAT, PROVED, COUNTEREXAMPLE, UNKNOWN
 The first encoding is for a fixed number of pigeons and holes.
 You will be asked to write two functions:
 
-- pigeons_in_holes(m, n):
+1. pigeons_in_holes(m, n):
     Input:
         m and n are Python integers.
     Returns:
-        A specification that says that that the total
-        number of pigeons in the n holes is exactly m.
+        A specification that says that there are
+        m total pigeons in n holes.
 
-- two_in_hole(n):
+2. two_in_hole(n):
     Input:
         n is a Python integer.
 
@@ -56,23 +58,15 @@ You will be asked to write two functions:
         a specification that says that at least one hole
         has at least two pigeons.
 
-There is a test case that will help check that
+There are test cases that will help check that
 your implementation is correct.
-
-Then we will consider the performance of Z3 on your implementation.
 """
 
 def pigeons_in_holes(m, n):
-    # A starting point: this creates a list of holes,
-    # where the i-th element contains the number of pigeons
-    # in hole i.
-    # You can use holes[i] to get the value for hole i.
-    holes = [z3.Int(f"hole{i}") for i in range(n)]
     # TODO
     raise NotImplementedError
 
 def two_in_hole(n):
-    holes = [z3.Int(f"hole{i}") for i in range(n)]
     # TODO
     raise NotImplementedError
 
@@ -106,22 +100,35 @@ def test_combined():
     )) == PROVED
 
 """
-Now write a function for the pigeonhole principle,
+3. Now write a function for the pigeonhole principle,
 using the functions you wrote above.
+
 The input is a Python integer n, and it should return
 a specification (as a Z3 formula) that says that the
 pigeonhole principle is true for n + 1 pigeons and n holes.
-
-There are two tests.
-What happens when as increase the number of holes to
-a few thousand (the "medium" test)?
-A few tens of thousands (the "large" test)?
 """
 
 @pytest.mark.skip
 def pigeonhole_principle(n):
     # TODO
     raise NotImplementedError
+
+"""
+Let's test the performance of Z3 on your implementation.
+Uncomment the following tests.
+
+4. How long does it take to prove the small and medium versions
+on your machine?
+
+5. What happens when as increase the number of holes to
+tens of thousands (the "large" test)?
+
+Performance summary
+(list the number of seconds or a timeout if it takes too long):
+- Small:
+- Medium:
+- Large:
+"""
 
 @pytest.mark.skip
 def test_pigeonhole_principle_small():
@@ -196,7 +203,7 @@ def pigeonhole_principle_general():
 What happens when we ask Z3 to prove the general pigeonhole
 principle?
 
-Uncomment the following test.
+6. Uncomment the following test.
 If it fails, change PROVED to the expected result.
 """
 
@@ -210,20 +217,13 @@ we can also try to run a version
 of the pigeonhole principle that is *not* true, to see if Z3
 can find a counterexample.
 
-Below, copy and paste the pigeonhole_principle_general
-code, but make a small change somewhere in the
+7. Copy and paste the pigeonhole_principle_general code,
+but make a small change somewhere in the
 function so that it is false.
 
 Then, uncomment the test which asserts that
     prove(pigeonhole_principle_false()) == COUNTEREXAMPLE.
 This test should pass.
-
-Hint:
-Try changing the number of pigeons from n + 1 to n
-or changing the required number of pigeons in a hole
-from at least 2 to exactly 2.
-If you are feeling creative, you can also try to come up with
-a different change.
 """
 
 def pigeonhole_principle_false():
@@ -236,8 +236,7 @@ def test_pigeonhole_principle_false():
     assert prove(pigeonhole_principle_general()) == COUNTEREXAMPLE
 
 """
-Is the result what you expected?
-
+8. Is the result what you expected?
 Why do you think Z3 has trouble with this problem?
 Comment on your thoughts below.
 """

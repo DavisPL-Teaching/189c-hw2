@@ -42,21 +42,11 @@ solution (x and y), if it finds one,
 or say that there are no solutions.
 You can assume that x and y are integers.
 
-Hint: you will need to consider many possibilities
-for the order of the four numbers.
-(There are 24 possible orders.)
-If it helps, you can first sort the numbers [a, b, c, d]
-and use that to narrow down the possibilities.
-
 === Output, second stage ===
 
 In the second stage, use Z3 to determine
 whether there are any *other* solutions, besides
 the one that you found in the first stage.
-
-To do this, you should add a constraint that
-the new solution is different from the first solution.
-We saw an example of this in class.
 
 You may change the function signature for part 2
 if you find that different arguments would be more useful.
