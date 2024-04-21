@@ -18,27 +18,29 @@ def abs(x):
     return z3.If(x >= 0, x, -x)
 
 """
-Write a specification for the following properties,
-and use Z3 to check which of them hold.
-The first one is written for you.
+Write a specification for the following properties using Z3.
 
 You can use the PROVED, FAILED, and COUNTEREXAMPLE
 constants for assertions in your tests.
+For example, if a property fails, use
+    assert prove(spec) == COUNTEREXAMPLE
 
 1. If x is greater than or equal to 0, then the absolute value of x is equal to x.
 
 2. If x is less than y, then the absolute value of x is less than the absolute value of y.
 
-4. If x is equal to y + 1, then the absolute value of x is equal to 1 plus the absolute value of y.
+3. If x is equal to y + 1, then the absolute value of x is equal to 1 plus the absolute value of y.
 
-5. The absolute value of the absolute value of x is equal to the absolute value of -x.
+4. The absolute value applied twice (absolute value of the absolute value of x) is equal to the absolute value of x.
 
-6. The absolute value of x + y is less than or equal to the absolute value of x + the absolute value of y.
+5. The absolute value of x + y is less than or equal to the absolute value of x + the absolute value of y.
+
+The first one is written for you.
 """
 
 def test_abs_1():
     x = z3.Int('x')
-    spec = z3.Implies(x > 0, abs(x) == x)
+    spec = z3.Implies(x >= 0, abs(x) == x)
     assert prove(spec) == PROVED
 
 @pytest.mark.skip
@@ -61,11 +63,6 @@ def test_abs_5():
     # TODO
     raise NotImplementedError
 
-@pytest.mark.skip
-def test_abs_6():
-    # TODO
-    raise NotImplementedError
-
 """
 B. Rectangle collision calculator
 
@@ -76,57 +73,63 @@ are given by a width, height, position of the center
 (in (x, y) coordinates), and velocity (in (vx, vy) coordinates).
 Over time, they move in the direction of the velocity every second.
 
-7. Write a function rectangle_position that calculates
+6. Write a function rectangle_position that calculates
 the position of a rectangle at a given time t,
 as a Z3 expression.
 
-8. Write a function rectangles_overlap that creates a formula whether
+7. Write a function rectangles_overlap that creates a formula whether
 two rectangles overlap at a specific time. The formula
 should be satisfiable if the two rectangles overlap and
 unsatisfiable if they do not overlap.
+(The time is not given as an argument, because it should be
+included in the expressions for the rectangle's position.)
+
 Hint: You can create two new variables,
     overlap_point_x
     overlap_point_y
 that describe the point of overlap between the two rectangles.
 
-9. Write a function rectangles_collide that checks whether
+8. Write a function rectangles_collide that checks whether
 two rectangles collide at any point in time.
-The time is not given as an argument, because it should be
-included in the expressions for the rectangle's position.
 
-Your function should call s3.solve to check whether
-there exists a point in time (t) and an overlap point
-(overlap_point_x, overlap_point_y)
-such that the two rectangles collide.
+Your function should return true if there exists *at least one* input
+    (t, overlap_point_x, overlap_point_y)
+that makes the two rectangles overlap.
+
+Hint: You may want to call solve(...).
 You can use the constants SAT and UNSAT to check the output.
 """
 
-def rectangle_position(x, y, width, height, vx, vy, t):
+def rectangle_position(x, y, vx, vy, t):
     """
-    x, y, width, height, vx, vy: Python integers
+    x, y, vx, vy: Python integers
     t: a Z3 real number
 
     returns: a tuple of two Z3 expressions
-    that represents the (x, y)
-    position of the center of the rectangle at time t.
+        (x, y)
+    that represents the center of the rectangle at time t.
     """
     # TODO
     raise NotImplementedError
 
-def rectangles_overlap(x1, y1, width1, height1, vx1, vy1,
-                       x2, y2, width2, height2, vx2, vy2):
-     """
-     x1, y1, width1, height1, vx1, vy1: Z3 expressions
-     x2, y2, width2, height2, vx2, vy2: Z3 expressions
+def rectangles_overlap(
+    x1, y1, width1, height1,
+    x2, y2, width2, height2,
+):
+    """
+    x1, y1, width1, height1: Z3 expressions
+    x2, y2, width2, height2: Z3 expressions
 
-     returns: a Z3 expression that is satisfiable if the two
-     rectangles overlap.
-     """
-     # TODO
-     raise NotImplementedError
+    returns: a Z3 expression that is satisfiable if the two
+    rectangles overlap.
+    """
+    # TODO
+    raise NotImplementedError
 
-def rectangles_collide(x1, y1, width1, height1, vx1, vy1,
-                       x2, y2, width2, height2, vx2, vy2):
+def rectangles_collide(
+    x1, y1, width1, height1, vx1, vy1,
+    x2, y2, width2, height2, vx2, vy2,
+):
     """
     x1, y1, width1, height1, vx1, vy1: Python integers
     x2, y2, width2, height2, vx2, vy2: Python integers
@@ -139,22 +142,17 @@ def rectangles_collide(x1, y1, width1, height1, vx1, vy1,
     raise NotImplementedError
 
 """
-10. Write two unit tests for rectangles_collide to
+9. Write a unit test for rectangles_collide to
 check if it seems to be working.
 """
 
 @pytest.mark.skip
-def test_rectangles_collide_1():
-    # TODO
-    raise NotImplementedError
-
-@pytest.mark.skip
-def test_rectangles_collide_2():
+def test_rectangles_collide():
     # TODO
     raise NotImplementedError
 
 """
-11. Do you think this is the best way to check for collisions in general?
+10. Do you think this is the best way to check for collisions in general?
 For example, for collision detection in a game?
 What about for a simple prototype?
 Discuss one benefit and one drawback of this approach.
