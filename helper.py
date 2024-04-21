@@ -9,16 +9,18 @@ z3.solve is that they also return the result.
 
 import z3
 
-# Constants -- output of solve()
+## Constants
 SAT = z3.sat
 UNSAT = z3.unsat
 UNKNOWN = z3.unknown
-
-# Constants -- output of prove()
 PROVED = UNSAT
 COUNTEREXAMPLE = SAT
-# UNKNOWN = UNKNOWN
 
+"""
+prove(spec)
+
+Returns PROVED, COUNTEREXAMPLE, or UNKNOWN
+"""
 def prove(spec):
     solver = z3.Solver()
     solver.add(z3.Not(spec))
@@ -27,13 +29,17 @@ def prove(spec):
         print("proved")
     elif result == UNKNOWN:
         print("failed to prove")
-        print(s.model())
     else:
         # result == SAT
         print("counterexample")
-        print(s.model())
+        print(solver.model())
     return result
 
+"""
+solve(spec)
+
+Returns SAT, UNSAT, or UNKNOWN
+"""
 def solve(spec):
     solver = z3.Solver()
     solver.add(spec)
@@ -45,5 +51,5 @@ def solve(spec):
     else:
         # result == SAT
         print("solution found")
-        print(s.model())
+        print(solver.model())
     return result

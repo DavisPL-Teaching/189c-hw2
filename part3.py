@@ -167,6 +167,8 @@ def pigeonhole_principle_general():
     ))
 
     # Positivity constraint
+    # Note: this is technically unnecessary
+    # (since the principle holds even with negative pigeons in holes).
     positive = z3.ForAll(i, z3.Implies(
         z3.And(i >= 0, i < n),
         holes[i] >= 0
@@ -180,7 +182,6 @@ def pigeonhole_principle_general():
     return z3.Implies(
         z3.And([
             n >= 0,
-            n == 20,
             sum_base_case,
             sum_inductive,
             pigeons_in_holes,
@@ -189,9 +190,11 @@ def pigeonhole_principle_general():
     )
 
 """
-What happens when we try to prove this?
+What happens when we ask Z3 to prove the general pigeonhole
+principle?
 
-Uncomment the following test and see what happens:
+Uncomment the following test.
+If it fails, change PROVED to the expected result.
 """
 
 @pytest.mark.skip
@@ -231,6 +234,7 @@ def test_pigeonhole_principle_false():
 
 """
 Is the result what you expected?
+
 Why do you think Z3 has trouble with this problem?
 Comment on your thoughts below.
 """
