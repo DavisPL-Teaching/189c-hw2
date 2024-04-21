@@ -2,9 +2,9 @@
 
 ## Getting started
 
-To start the assignment, clone your repository.
-Reminder: you will submit the assignment by committing
-and pushing your code.
+**Reminder:**
+This assignment will be submitted through GitHub classroom.
+To "submit" the assignment, push your changes to your repository.
 Please see [this Piazza post](https://piazza.com/class/lt90i40zrot3ue/post/48) for further instructions.
 
 You will also need Z3 installed, which you should
@@ -22,6 +22,6 @@ There are three parts to the assignment.
 - Part 1 is a series of mini exercises, similar to HW1.
 - Part 2 is a solver for the "four numbers" game that we
 played on the first day of class.
-- Part 3 explores the performance limitations of Z3.
+- Part 3 explores some of the limitations of Z3.
 
 To continue, open and edit the files `part1.py`, `part2.py`, and `part3.py`.
