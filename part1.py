@@ -64,42 +64,81 @@ def test_abs_5():
     raise NotImplementedError
 
 """
-B. Rectangle collision calculator
+B. Proving assertions
+
+One of the useful things about Z3 is that instead of relying
+on testing and assert statements, we can *prove* that an
+assertion is true. Once we have a proof, we can omit the assertion
+from production code.
+
+6. In the following example we have a player level function that is
+supposed to always be between 1 and 100. Rewrite the function
+in Z3 and use it to prove that the assertion always holds,
+and therefore is safe to omit in production.
+You may assume as a precondition that the player level is previously
+between 1 and 100 when the function is called.
+"""
+
+def update_player_level(player_level, delta):
+    if delta < 0:
+        result = player_level
+    elif player_level + delta > 100:
+        result = 100
+    else:
+        result = player_level + delta
+
+    # This line is the assertion that we want to prove
+    assert result >= 1 and result <= 100
+
+    return result
+
+def update_player_level_z3(player_level, delta):
+    # TODO
+    raise NotImplementedError
+
+@pytest.mark.skip
+def test_proving_assertion():
+    # TODO
+    raise NotImplementedError
+
+"""
+7. Based on this experience, do you think it would it be possible to
+automatically do the translation from update_player_level to Z3?
+
+Why or why not?
+"""
+
+"""
+C. Rectangle collision calculator
 
 Let's write a function that is able to calculate
 whether two rectangles collide.
-Initially, the two rectangles
-are given by a width, height, position of the center
-(in (x, y) coordinates), and velocity (in (vx, vy) coordinates).
-Over time, they move in the direction of the velocity every second.
 
-6. Write a function rectangle_position that calculates
+Each rectangle is given by its center (x, y) and its width and height.
+The circle is given by its center (x, y) and its radius.
+Both shapes have a velocity (vx, vy) that describes how much they
+move in the x- and y-directions every second.
+
+8. Write a function rectangle_position that calculates
 the position of a rectangle at a given time t,
 as a Z3 expression.
 
-7. Write a function rectangles_overlap that creates a formula whether
-two rectangles overlap at a specific time. The formula
-should be satisfiable if the two rectangles overlap and
-unsatisfiable if they do not overlap.
-(The time is not given as an argument, because it should be
-included in the expressions for the rectangle's position.)
+9. Write a function rectangles_overlap that creates a formula
+that is satisfiable if the two rectangles overlap,
+and unsatisfiable otherwise.
+To make this part more interesting: instead of checking for
+overlap directly, create new variables for the point of overlap.
+(This is a more general technique that
+can be used for any shape, not just rectangles!)
 
-Hint:
-There's more than one way to do this, but one way that is
-more general than just rectangles is to create two new variables,
+Create two new variables, e.g.
     overlap_point_x
     overlap_point_y
 that describe the point of overlap between the two shapes.
+Then, assert that this new point is inside the bounds of both shapes.
 
-8. Write a function rectangles_collide that checks whether
+10. Write a function rectangles_collide that checks whether
 two rectangles collide at any point in time.
-
-Your function should return true if there exists *at least one* input
-    (t, overlap_point_x, overlap_point_y)
-that makes the two rectangles overlap.
-
-Hint: You may want to call solve(...).
-You can use the constants SAT and UNSAT to check the output.
 """
 
 def rectangle_position(x, y, vx, vy, t):
@@ -124,6 +163,9 @@ def rectangles_overlap(
 
     returns: a Z3 expression that is satisfiable if the two
     rectangles overlap.
+
+    Note: the time is not given as an argument, because it should be
+    included in the expressions for the rectangle's position.
     """
     # TODO
     raise NotImplementedError
@@ -144,7 +186,7 @@ def rectangles_collide(
     raise NotImplementedError
 
 """
-9. Write a unit test for rectangles_collide to
+11. Write a unit test for rectangles_collide to
 check if it seems to be working.
 """
 
@@ -154,8 +196,15 @@ def test_rectangles_collide():
     raise NotImplementedError
 
 """
-10. Do you think this is the best way to check for collisions in general?
+12. Do you think this is the best way to check for collisions in general?
 For example, for collision detection in a game?
 What about for a simple prototype?
 Discuss one benefit and one drawback of this approach.
+"""
+
+"""
+13. (Extra credit)
+Generalize your functions in parts 6-9 to work for any shape
+(for example, a circle or a triangle), using Python classes.
+Implement one other shape in this system.
 """
