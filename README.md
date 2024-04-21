@@ -1,20 +1,20 @@
 # Homework 2: Z3 and Satisfiability
 
+## Due date: Friday, May 3
+
 ## Getting started
 
-**Reminder:**
-This assignment will be submitted through GitHub classroom.
-To "submit" the assignment, push your changes to your repository.
-Please see [this Piazza post](https://piazza.com/class/lt90i40zrot3ue/post/48) for further instructions.
-
-You will also need Z3 installed, which you should
-have installed from HW0. To double check, run `z3 --version`, you should get something like:
+You will need to have Z3 installed; see [Homework 0](https://github.com/DavisPL-Teaching/189c-hw0).
+To double check, run `z3 --version`, you should get something like:
 ```
 Z3 version 4.13.0 - 64 bit
 ```
 (a different version is probably OK.)
 You may need to `pip3 install z3-solver` if you are
 using codespaces or if you are on a fresh machine.
+
+As with HW1, you will submit your homework through GitHub Classroom. Clone your copy of the repository, then push your changes to GitHub before the deadline.
+Please see [this Piazza post](https://piazza.com/class/lt90i40zrot3ue/post/48) for further instructions.
 
 ## Assignment
 
