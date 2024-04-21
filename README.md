@@ -24,6 +24,8 @@ Like HW1, there are three parts to the assignment:
 played on the first day of class.
 - Part 3 explores some of the limitations of Z3.
 
+There is also a Part 4, which is optional extra credit.
+
 There is also a helper file, `helper.py` that contains some useful
 functions when working with Z3.
 
