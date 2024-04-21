@@ -25,12 +25,15 @@ Solution: x = 5, y = 100.
 Four numbers: 2, 6, 18, 72
 Solution: x = 12, y = 6.
 
+Four numbers: 0, 1, 1, 2
+Solution: x = 1, y = 1.
+
 === Input ===
 
 Your solver should take 4 numbers as input from the user.
 For simplicity, assume that all 4 numbers are integers.
 You can get input in Python using the `input` function:
-    num1 = input("First number:")
+    num1 = int(input("First number: "))
 
 === Output, first stage ===
 
@@ -38,6 +41,12 @@ In the first stage, use Z3 to output the
 solution (x and y), if it finds one,
 or say that there are no solutions.
 You can assume that x and y are integers.
+
+Hint: you will need to consider many possibilities
+for the order of the four numbers.
+(There are 24 possible orders.)
+If it helps, you can first sort the numbers [a, b, c, d]
+and use that to narrow down the possibilities.
 
 === Output, second stage ===
 
@@ -48,6 +57,9 @@ the one that you found in the first stage.
 To do this, you should add a constraint that
 the new solution is different from the first solution.
 We saw an example of this in class.
+
+You may change the function signature for part 2
+if you find that different arguments would be more useful.
 
 === Helper function ===
 
@@ -60,8 +72,10 @@ a solution that you can use to get the values of x and y:
 
 === Try it out! ===
 
-Try out your game to make sure it is working by running
+Try out your game by running
     python3 part2.py
+
+to see if it works!
 
 If you like, you can also write unit tests, but this
 is not required for this part.
@@ -73,14 +87,17 @@ import pytest
 from helper import solve, get_solution, SAT, UNSAT, UNKNOWN
 
 def get_input():
+    print("=== Input ===")
     # TODO: return (a, b, c, d)
     raise NotImplementedError
 
 def solve_stage1(a, b, c, d):
+    print("=== Stage 1 ===")
     # TODO: Solve the four numbers game
     raise NotImplementedError
 
 def solve_stage2(a, b, c, d):
+    print("=== Stage 2 ===")
     # TODO: Determine if there are any other solutions
     raise NotImplementedError
 
