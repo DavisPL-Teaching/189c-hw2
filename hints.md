@@ -11,13 +11,21 @@ z3.If(cond, result1, result2)
 ```
 (where `cond` is a z3 Boolean and `result1`, `result2` are Z3 expressions).
 
-## Part 1 exercise 8
+## Part 1 exercise 7
 
-Use solve(...) and the constants SAT and UNSAT to check the output.
+You can create two new variables,
+    overlap_point_x
+    overlap_point_y
+that describe the point of overlap between the two rectangles.
 
-Your function should return true if there exists *at least one* input
+It may help to recall the definition of satisfiable:
+the formula is satisfiable if there exists *at least one* input
     (t, overlap_point_x, overlap_point_y)
 that makes the two rectangles overlap.
+
+## Part 1 exercise 9
+
+Use solve(...) and the constants SAT and UNSAT to check the output.
 
 ## Part 1 exercise 13
 

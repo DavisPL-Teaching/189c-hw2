@@ -126,6 +126,7 @@ as a Z3 expression.
 9. Write a function rectangles_overlap that creates a formula
 that is satisfiable if the two rectangles overlap,
 and unsatisfiable otherwise.
+
 To make this part more interesting: instead of checking for
 overlap directly, create new variables for the point of overlap.
 (This is a more general technique that
