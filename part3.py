@@ -233,7 +233,7 @@ def pigeonhole_principle_false():
 
 @pytest.mark.skip
 def test_pigeonhole_principle_false():
-    assert prove(pigeonhole_principle_general()) == COUNTEREXAMPLE
+    assert prove(pigeonhole_principle_false()) == COUNTEREXAMPLE
 
 """
 8. Is the result what you expected?
