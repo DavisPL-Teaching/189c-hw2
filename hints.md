@@ -11,7 +11,7 @@ z3.If(cond, result1, result2)
 ```
 (where `cond` is a z3 Boolean and `result1`, `result2` are Z3 expressions).
 
-## Part 1 exercise 7
+## Part 1 exercise 9
 
 You can create two new variables,
     overlap_point_x
@@ -23,7 +23,7 @@ the formula is satisfiable if there exists *at least one* input
     (t, overlap_point_x, overlap_point_y)
 that makes the two rectangles overlap.
 
-## Part 1 exercise 9
+## Part 1 exercise 10
 
 Use solve(...) and the constants SAT and UNSAT to check the output.
 
