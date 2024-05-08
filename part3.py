@@ -119,11 +119,12 @@ Uncomment the following tests.
 
 4. How long does it take to prove the small and medium versions
 on your machine?
-
-5. What happens when as increase the number of holes to
+What happens when as increase the number of holes to
 tens of thousands (the "large" test)?
+(Your final code should have @pytest.mark.skip only for the tests which time out,
+otherwise the test should pass.)
 
-Performance summary
+5. Performance summary
 (list the number of seconds or a timeout if it takes too long):
 - Small:
 - Medium:

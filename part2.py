@@ -31,7 +31,7 @@ Solution: x = 1, y = 1.
 === Input ===
 
 Your solver should take 4 numbers as input from the user.
-For simplicity, assume that all 4 numbers are integers.
+For simplicity, assume that all 4 numbers are positive integers.
 You can get input in Python using the `input` function:
     num1 = int(input("First number: "))
 
@@ -40,7 +40,7 @@ You can get input in Python using the `input` function:
 In the first stage, use Z3 to output the
 solution (x and y), if it finds one,
 or say that there are no solutions.
-You can assume that x and y are integers.
+You can assume that x and y are positive integers.
 
 === Output, second stage ===
 

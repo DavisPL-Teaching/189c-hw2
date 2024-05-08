@@ -33,7 +33,7 @@ For example, if a property fails, use
 
 4. The absolute value applied twice (absolute value of the absolute value of x) is equal to the absolute value of x.
 
-5. The absolute value of x + y is less than or equal to the absolute value of x + the absolute value of y.
+5. The absolute value of (x + y) is less than or equal to (the absolute value of x) + (the absolute value of y).
 
 The first one is written for you.
 """
@@ -127,6 +127,7 @@ as a Z3 expression.
 that is satisfiable if the two rectangles overlap,
 and unsatisfiable otherwise.
 
+**Important additional instructions:**
 To make this part more interesting: instead of checking for
 overlap directly, create new variables for the point of overlap.
 (This is a more general technique that
@@ -134,6 +135,7 @@ can be used for any shape, not just rectangles!)
 
 10. Write a function rectangles_collide that checks whether
 two rectangles collide at any point in time.
+It should return a Python boolean (True or False).
 """
 
 def rectangle_position(x, y, vx, vy, t):
@@ -199,7 +201,7 @@ Discuss one benefit and one drawback of this approach.
 
 """
 13. (Extra credit)
-Generalize your functions in parts 6-9 to work for any shape
+Generalize your functions in parts 8-11 to work for any shape
 (for example, a circle or a triangle), using Python classes.
 Implement one other shape in this system.
 """
