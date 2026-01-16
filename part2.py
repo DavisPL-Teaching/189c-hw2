@@ -3,7 +3,6 @@ Four numbers game solver
 
 In the second part of the homework, we will implement
 a solver for the four numbers game.
-(We tried out this game in Lecture 0.)
 
 === Four numbers game ===
 
@@ -14,6 +13,7 @@ numbers:
     a, b, c, d
 and tell you that they are the values of the sum, difference,
 product, and quotient (x+y, x-y, xy, and x/y), in an unknown order.
+Assume that the difference is nonnegative and the quotient is a whole number.
 
 Can you figure out what x and y are?
 
@@ -31,29 +31,31 @@ Solution: x = 1, y = 1.
 === Input ===
 
 Your solver should take 4 numbers as input from the user.
-For simplicity, assume that all 4 numbers are positive integers.
+For simplicity, assume that all 4 numbers are nonnegative integers.
 You can get input in Python using the `input` function:
     num1 = int(input("First number: "))
 
-=== Output, first stage ===
+=== Output, part (a) ===
 
-In the first stage, use Z3 to output the
+Use Z3 to output the
 solution (x and y), if it finds one,
 or say that there are no solutions.
 You can assume that x and y are positive integers.
 
-=== Output, second stage ===
+The first function q5a(a, b, c, d) should, when given four integers a, b, c, d, return a solution $x, y$, if there is at least one solution, or None if there is no solution.
+Second, the function q5_interactive() should provide an interactive version: it should prompt the user for 4 numbers, then display as output the correct answers x and y.
 
-In the second stage, use Z3 to determine
+=== Output, part (b) ===
+
+Use Z3 to determine
 whether there are any *other* solutions, besides
 the one that you found in the first stage.
 
-You may change the function signature for part 2
-if you find that different arguments would be more useful.
-
+q5b(a, b, c, d) should return a Python string "multiple", "unique", or "none" depending on whether multiple solutions exist.
+Update your q5_run() interactive version to also show the output of q5b.
 === Helper function ===
 
-We have provided a function get_solution
+Please use the helper function get_solution
 in helper.py that will be useful for this part.
 If the spec is satisfiable (SAT), it will return
 a solution that you can use to get the values of x and y:
@@ -81,9 +83,21 @@ def get_input():
     # TODO: return (a, b, c, d)
     raise NotImplementedError
 
-def solve_stage1(a, b, c, d):
+def q5a(a, b, c, d):
+    # TODO
+    raise NotImplementedError
+
+def q5_run(a, b, c, d):
+    a, b, c, d = get_input()
     print("=== Stage 1 ===")
-    # TODO: Solve the four numbers game
+    # TODO, call your solution for part (a), print the solution
+    print("=== Stage 2 ===")
+    # TODO, call your solution for part (b), print the solution
+
+    raise NotImplementedError
+
+def q5b(a, b, c, d):
+    # TODO
     raise NotImplementedError
 
 def solve_stage2(a, b, c, d):
@@ -92,6 +106,4 @@ def solve_stage2(a, b, c, d):
     raise NotImplementedError
 
 if __name__ == "__main__":
-    a, b, c, d = get_input()
-    solve_stage1(a, b, c, d)
-    solve_stage2(a, b, c, d)
+    q5_run()
