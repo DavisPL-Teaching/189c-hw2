@@ -134,7 +134,7 @@ overlap directly, create new variables for the point of overlap.
 can be used for any shape, not just rectangles!)
 
 10. Write a function rectangles_collide that checks whether
-two rectangles collide at any point in time.
+two rectangles collide at any point in time t >= 0.
 It should return a Python boolean (True or False).
 """
 
