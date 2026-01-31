@@ -106,6 +106,10 @@ def test_proving_assertion():
 automatically do the translation from update_player_level to Z3?
 
 Why or why not?
+
+===== ANSWER Q7 BELOW =====
+
+===== END OF Q7 ANSWER =====
 """
 
 """
@@ -197,6 +201,10 @@ def test_rectangles_collide():
 For example, for collision detection in a game?
 What about for a simple prototype?
 Discuss one benefit and one drawback of this approach.
+
+===== ANSWER Q12 BELOW =====
+
+===== END OF Q12 ANSWER =====
 """
 
 """
