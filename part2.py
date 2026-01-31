@@ -73,6 +73,9 @@ should return a Python string
     "multiple", "unique", or "none"
 
 depending on whether multiple solutions exist.
+The arguments x and y should be the answer from stage1,
+or x = None, y = None if stage1 returns None.
+
 Update your run_interactive() version to also show the output of solve_stage2.
 
 === Helper function ===
@@ -108,7 +111,7 @@ def solve_stage1(a, b, c, d):
     # TODO: return (x, y)
     raise NotImplementedError
 
-def run_interactive(a, b, c, d):
+def run_interactive():
     print("=== Input ===")
     a, b, c, d = get_input()
     print("=== Stage 1 ===")
