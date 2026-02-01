@@ -8,9 +8,10 @@ a solver for the four numbers game.
 
 The game works as follows:
 First, I secretly think of two positive integers x and y.
-I don't tell you what they are, but instead I give you four
-numbers:
+I don't tell you what they are, but instead I give you four numbers:
+
     a, b, c, d
+
 and tell you that they are the values of the sum, difference,
 product, and quotient (x+y, x-y, xy, and x/y), in an unknown order.
 Assume that the difference is nonnegative and the quotient is a whole number.
@@ -50,7 +51,11 @@ should, when given four integers a, b, c, d, return a solution
 
     x, y
 
-if there is at least one solution, or None if there is no solution.
+(where x and y are Python integers) if there is at least one solution, or
+
+    None, None
+
+if there is no solution.
 
 Second, the function
 
@@ -74,7 +79,7 @@ should return a Python string
 
 depending on whether multiple solutions exist.
 The arguments x and y should be the answer from stage1,
-or x = None, y = None if stage1 returns None.
+or x = None, y = None if stage1 returns no solution.
 
 Update your run_interactive() version to also show the output of solve_stage2.
 
@@ -90,6 +95,7 @@ a solution that you can use to get the values of x and y:
 === Try it out! ===
 
 Try out your game by running
+
     python3 part2.py
 
 to see if it works!

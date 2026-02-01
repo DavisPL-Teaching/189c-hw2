@@ -102,7 +102,7 @@ def test_proving_assertion():
     raise NotImplementedError
 
 """
-7. Based on this experience, do you think it would it be possible to
+7. Based on this experience, do you think it would it be possible to write a program to
 automatically do the translation from update_player_level to Z3?
 
 Why or why not?
@@ -136,6 +136,9 @@ To make this part more interesting: instead of checking for
 overlap directly, create new variables for the point of overlap.
 (This is a more general technique that
 can be used for any shape, not just rectangles!)
+
+A rectangle and circle are both considered to include points on the border
+(so they can overlap even if only their borders touch).
 
 10. Write a function rectangles_collide that checks whether
 two rectangles collide at any point in time t >= 0.
@@ -212,4 +215,14 @@ Discuss one benefit and one drawback of this approach.
 Generalize your functions in parts 8-11 to work for any shape
 (for example, a circle or a triangle), using Python classes.
 Implement one other shape in this system.
+
+If you complete this part, write some unit tests in test_extra_credit
+to check that your generalization works.
 """
+
+# Unit test if needed
+# Please put all tests in this unit test.
+@pytest.mark.skip
+def test_extra_credit():
+    # TODO
+    raise NotImplementedError

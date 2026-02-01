@@ -110,7 +110,6 @@ a specification (as a Z3 formula) that says that the
 pigeonhole principle is true for n + 1 pigeons and n holes.
 """
 
-@pytest.mark.skip
 def pigeonhole_principle(n):
     # TODO
     raise NotImplementedError
@@ -119,7 +118,7 @@ def pigeonhole_principle(n):
 Let's test the performance of Z3 on your implementation.
 Uncomment the following tests.
 
-4. How long does it take to prove the small and medium versions
+4. How long does it take to run the tiny and small versions
 on your machine?
 (list the number of seconds or a timeout if it takes longer than 3 minutes):
 
@@ -127,8 +126,8 @@ on your machine?
 
 ===== END OF Q4 ANSWER =====
 
-5. What happens when as increase the number of holes to
-tens of thousands (the "large" test)?
+5. What happens when we increase the number of holes to
+thousands or tens of thousands - the medium and small versions?
 (list the number of seconds or a timeout if it takes longer than 3 minutes):
 
 ===== ANSWER Q5 BELOW =====
@@ -137,14 +136,19 @@ tens of thousands (the "large" test)?
 
 For both questions, assume a timeout of 3 minutes.
 
-Make sure that your final code has @pytest.mark.skip written for the tests
+Please make sure that your final code has @pytest.mark.skip written for the tests
 which time out!
 Otherwise, the test should pass.
 """
 
 @pytest.mark.skip
+def test_pigeonhole_principle_tiny():
+    for n in range(1, 6):
+        assert prove(pigeonhole_principle(n)) == PROVED
+
+@pytest.mark.skip
 def test_pigeonhole_principle_small():
-    for n in range(1, 11):
+    for n in range(6, 11):
         assert prove(pigeonhole_principle(n)) == PROVED
 
 @pytest.mark.skip
@@ -217,7 +221,10 @@ principle?
 
 Uncomment the following test.
 If it fails, change PROVED to the expected result.
-Describe what happened below.
+If it times out - we will allow a maximum time of 2 minutes - keep the test as skipped, but add a reason:
+@pytest.mark.skip(reason="the test timed out.")
+
+Describe what happened below. Did the result surprise you?
 
 ===== ANSWER Q6 BELOW =====
 
